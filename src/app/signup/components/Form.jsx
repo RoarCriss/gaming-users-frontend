@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import InputField from "./InputField";
@@ -49,7 +51,7 @@ const Form = () => {
       if (res.ok) {
         router.push("/login");
       } else {
-        const data = await res.json;
+        const data = await res.json();
         setError(data.message || "There was an error registering the user");
       }
     } catch (err) {
@@ -67,12 +69,77 @@ const Form = () => {
         onChange={handleChange}
       />
       <InputField
-        label="Username"
-        type="text"
-        name="userName"
-        value={formData.userName}
+        label="Email"
+        type="email"
+        name="userEmail"
+        value={formData.userEmail}
         onChange={handleChange}
       />
+      <InputField
+        label="Password"
+        type="password"
+        name="password"
+        value={formData.password}
+        onChange={handleChange}
+      />
+      <InputField
+        label="Age"
+        type="number"
+        name="age"
+        value={formData.age}
+        onChange={handleChange}
+      />
+      <InputField
+        label="Country"
+        type="text"
+        name="country"
+        value={formData.country}
+        onChange={handleChange}
+      />
+      <div id="select-lookFor">
+        <label>Looking for</label>
+        <select
+          name="lookingFor"
+          id="looking-for"
+          value={formData.lookingFor}
+          onChange={handleChange}
+        >
+          <option value="">Choose one</option>
+          <option value="co-op">Co-op</option>
+          <option value="PvP">PvP</option>
+          <option value="casual">Casual</option>
+        </select>
+      </div>
+      <div id="select-skill">
+        <select
+          name="skillLevel"
+          id="skill-level"
+          value={formData.skillLevel}
+          onChange={handleChange}
+        >
+          <option value="">Choose one</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+      </div>
+      <div id="select-platform">
+        <select
+          name="preferredPlatform"
+          id="preferred-platform"
+          value={formData.preferredPlatform}
+          onChange={handleChange}
+        >
+          <option value="">Choose one</option>
+          <option value="PC">PC</option>
+          <option value="PlayStation">PlayStation</option>
+          <option value="Xbox">Xbox</option>
+        </select>
+      </div>
+      <ErrorMessage message={error} />
+      <button type="submit">Sign In</button>
     </form>
   );
 };
+
+export default Form;
