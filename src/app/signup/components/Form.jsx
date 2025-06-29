@@ -56,4 +56,23 @@ const Form = () => {
       setError("Connection error");
     }
   };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <InputField
+        label="Username"
+        type="text"
+        name="userName"
+        value={formData.userName}
+        onChange={handleChange}
+      />
+      <InputField
+        label="Username"
+        type="text"
+        name="userName"
+        value={formData.userName}
+        onChange={handleChange}
+      />
+    </form>
+  );
 };
