@@ -7,16 +7,16 @@ import ErrorMessage from "./ErrorMessage";
 
 const Form = () => {
   const [formData, setFormData] = useState({
-    userName: "",
-    userEmail: "",
+    username: "",
+    useremail: "",
     password: "",
     country: "Spain", // españita por defecto
     age: "",
     description: "",
-    lookingFor: "",
-    skillLevel: "",
-    playTime: "Evenings", // por defecto
-    preferredPlatform: "",
+    looking_for: "",
+    skill_level: "",
+    play_time: "Evenings", // por defecto
+    preferred_platform: "",
     games: [],
   });
   const [error, setError] = useState("");
@@ -34,7 +34,7 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.userName || !formData.userEmail || !formData.password) {
+    if (!formData.username || !formData.useremail || !formData.password) {
       setError("Please complete all fields");
       return;
     }
@@ -65,14 +65,14 @@ const Form = () => {
         label="Username"
         type="text"
         name="userName"
-        value={formData.userName}
+        value={formData.username}
         onChange={handleChange}
       />
       <InputField
         label="Email"
         type="email"
         name="userEmail"
-        value={formData.userEmail}
+        value={formData.useremail}
         onChange={handleChange}
       />
       <InputField
@@ -101,7 +101,7 @@ const Form = () => {
         <select
           name="lookingFor"
           id="looking-for"
-          value={formData.lookingFor}
+          value={formData.looking_for}
           onChange={handleChange}
         >
           <option value="">Choose one</option>
@@ -114,7 +114,7 @@ const Form = () => {
         <select
           name="skillLevel"
           id="skill-level"
-          value={formData.skillLevel}
+          value={formData.skill_level}
           onChange={handleChange}
         >
           <option value="">Choose one</option>
@@ -127,7 +127,7 @@ const Form = () => {
         <select
           name="preferredPlatform"
           id="preferred-platform"
-          value={formData.preferredPlatform}
+          value={formData.preferred_platform}
           onChange={handleChange}
         >
           <option value="">Choose one</option>
