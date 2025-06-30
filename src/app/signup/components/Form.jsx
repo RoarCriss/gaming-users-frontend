@@ -8,7 +8,7 @@ import ErrorMessage from "./ErrorMessage";
 const Form = () => {
   const [formData, setFormData] = useState({
     username: "",
-    useremail: "",
+    email: "",
     password: "",
     country: "Spain", // españita por defecto
     age: "",
@@ -34,7 +34,7 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.username || !formData.useremail || !formData.password) {
+    if (!formData.username || !formData.email || !formData.password) {
       setError("Please complete all fields");
       return;
     }
@@ -64,15 +64,15 @@ const Form = () => {
       <InputField
         label="Username"
         type="text"
-        name="userName"
+        name="username"
         value={formData.username}
         onChange={handleChange}
       />
       <InputField
         label="Email"
         type="email"
-        name="userEmail"
-        value={formData.useremail}
+        name="email"
+        value={formData.email}
         onChange={handleChange}
       />
       <InputField
@@ -99,7 +99,7 @@ const Form = () => {
       <div id="select-lookFor">
         <label>Looking for</label>
         <select
-          name="lookingFor"
+          name="looking_for"
           id="looking-for"
           value={formData.looking_for}
           onChange={handleChange}
@@ -112,7 +112,7 @@ const Form = () => {
       </div>
       <div id="select-skill">
         <select
-          name="skillLevel"
+          name="skill_level"
           id="skill-level"
           value={formData.skill_level}
           onChange={handleChange}
@@ -125,7 +125,7 @@ const Form = () => {
       </div>
       <div id="select-platform">
         <select
-          name="preferredPlatform"
+          name="preferred_platform"
           id="preferred-platform"
           value={formData.preferred_platform}
           onChange={handleChange}
